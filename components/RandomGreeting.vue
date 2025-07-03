@@ -1,12 +1,5 @@
 <template>
-  <div class="flex gap-6 items-center">
-    <NuxtButton
-      size="xl"
-      :loading="isLoading"
-      @click="updateRandomGreeting">
-      <span v-if="!isLoading">👋</span> Random Greeting
-    </NuxtButton>
-
+  <div class="flex gap-6 flex-col sm:flex-row justify-between">
     <div>
       <div v-if="isLoading" class="flex gap-3 items-center">
         <NuxtSkeleton class="h-12 w-12 rounded-full" />
@@ -24,6 +17,14 @@
       </div>
       <p v-else class="text-2xl font-medium text-gray-500">ランダムな挨拶が返ってきます。</p>
     </div>
+
+    <NuxtButton
+      size="xl"
+      :loading="isLoading"
+      class="justify-center"
+      @click="updateRandomGreeting">
+      <span v-if="!isLoading">👋</span> Random Greeting
+    </NuxtButton>
   </div>
 </template>
 
