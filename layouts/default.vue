@@ -4,7 +4,7 @@
       <span class="font-bold text-xl">SUSPENSE SAMPLE</span>
     </header>
 
-    <NuxtContainer class="py-8">
+    <NuxtContainer class="py-16">
       <slot />
     </NuxtContainer>
 
