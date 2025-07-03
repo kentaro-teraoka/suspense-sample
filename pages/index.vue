@@ -1,3 +1,9 @@
 <template>
-  <h1>Index</h1>
+  <div>
+    <Greeting />
+  </div>
 </template>
+
+<script lang="ts" setup>
+import Greeting from '~/components/Greeting.vue';
+</script>
