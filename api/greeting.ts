@@ -41,7 +41,7 @@ export const fetchGreetings = async (): Promise<GreetingType[]> => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(greetings)
-    }, 4000);
+    }, 3000);
   });
 }
 
@@ -50,6 +50,6 @@ export const fetchRandomGreeting = async (): Promise<GreetingType> => {
     setTimeout(() => {
       const randomIndex = Math.floor(Math.random() * greetings.length)
       resolve(greetings[randomIndex])
-    }, 2000);
+    }, 1000);
   });
 }

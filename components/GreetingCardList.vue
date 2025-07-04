@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts" setup>
-import { fetchGreetings, type GreetingType } from '~/api';
+import { fetchGreetings, type GreetingType } from '~/api/greeting';
 import CardGrid from '~/components/CardGrid.vue';
 
 const greetings = ref<GreetingType[]>([])

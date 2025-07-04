@@ -2,13 +2,6 @@
   <header class="flex justify-between items-center p-4 border-b border-gray-800">
     <span class="font-bold text-xl">SUSPENSE SAMPLE</span>
     <NuxtNavigationMenu :items="navigations" />
-    <NuxtSwitch
-      v-model="isLoggedIn"
-      unchecked-icon="i-lucide-x"
-      checked-icon="i-lucide-check"
-      size="xl"
-      label="Login"
-    />
   </header>
 </template>
 
@@ -27,6 +20,4 @@ const navigations = ref<NavigationMenuItem[]>([
     to: "/mypage",
   },
 ])
-
-const isLoggedIn = ref(false)
 </script>

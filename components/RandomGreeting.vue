@@ -29,7 +29,7 @@
 </template>
 
 <script lang="ts" setup>
-import { fetchRandomGreeting, type GreetingType } from '~/api'
+import { fetchRandomGreeting, type GreetingType } from '~/api/greeting'
 
 
 const isLoading = ref<boolean>(false)
