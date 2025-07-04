@@ -1,8 +1,6 @@
 <template>
   <UApp class="grid min-h-screen grid-rows-[auto_1fr_auto]">
-    <header class="p-4 border-b border-gray-800">
-      <span class="font-bold text-xl">SUSPENSE SAMPLE</span>
-    </header>
+    <Header />
 
     <NuxtContainer class="py-16">
       <slot />
@@ -13,3 +11,7 @@
     </footer>
   </UApp>
 </template>
+
+<script lang="ts" setup>
+import Header from '~/components/Header.vue';
+</script>
