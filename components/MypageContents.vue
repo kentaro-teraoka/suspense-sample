@@ -1,22 +1,43 @@
 <template>
   <div v-if="isLoggedIn" class="space-y-10">
     <h2 class="text-4xl font-bold">Your Profile</h2>
-    <Suspense>
-      <UserInfoCard />
-      <template #fallback>
-        <NuxtSkeleton class="w-full h-40 rounded-md" />
+    <NuxtErrorBoundary>
+      <Suspense>
+        <UserInfoCard />
+        <template #fallback>
+          <NuxtSkeleton class="w-full h-40 rounded-md" />
+        </template>
+      </Suspense>
+      <template #error="{error}">
+        <NuxtCard variant="subtle">
+          <div class="flex justify-between items-center">
+            <p>{{error}}</p>
+            <NuxtButton variant="outline">
+              登録する
+            </NuxtButton>
+          </div>
+        </NuxtCard>
       </template>
-    </Suspense>
+    </NuxtErrorBoundary>
 
     <h2 class="text-4xl font-bold">Your Images</h2>
-    <Suspense>
-      <UserPostImages />
-      <template #fallback>
+    <NuxtErrorBoundary>
+      <Suspense>
+        <UserPostImages />
+        <template #fallback>
+          <ImageGrid :items="Array(5)">
+            <NuxtSkeleton class="w-full aspect-square rounded-md" />
+          </ImageGrid>
+        </template>
+      </Suspense>
+      <template #error>
         <ImageGrid :items="Array(5)">
-          <NuxtSkeleton class="w-full aspect-square rounded-md" />
+          <div class="grid place-content-center aspect-square rounded-md bg-elevated/50">
+            <NuxtIcon name="i-lucide-image-off" class="size-12 bg-gray-500" />
+          </div>
         </ImageGrid>
       </template>
-    </Suspense>
+    </NuxtErrorBoundary>
   </div>
   <div v-else>
     <h1 class="text-4xl font-bold">You need login</h1>

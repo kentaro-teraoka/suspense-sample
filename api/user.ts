@@ -13,9 +13,10 @@ const userInfo: UserInfoType = {
 }
 
 export const fetchUserInfo = async (): Promise<UserInfoType> => {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve(userInfo)
+      // resolve(userInfo)
+      reject("プロフィールが登録されていません。")
     }, 2000);
   });
 }
@@ -34,9 +35,10 @@ const userPostImages: string[] = [
 ]
 
 export const fetchUserPostImages = async (): Promise<string[]> => {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve(userPostImages)
+      // resolve(userPostImages)
+      reject("写真が見つかりません。")
     }, 4000);
   });
 }
