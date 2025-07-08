@@ -19,3 +19,24 @@ export const fetchUserInfo = async (): Promise<UserInfoType> => {
     }, 2000);
   });
 }
+
+const userPostImages: string[] = [
+  "https://picsum.photos/500?random=1",
+  "https://picsum.photos/500?random=2",
+  "https://picsum.photos/500?random=3",
+  "https://picsum.photos/500?random=4",
+  "https://picsum.photos/500?random=5",
+  "https://picsum.photos/500?random=6",
+  "https://picsum.photos/500?random=7",
+  "https://picsum.photos/500?random=8",
+  "https://picsum.photos/500?random=9",
+  "https://picsum.photos/500?random=10",
+]
+
+export const fetchUserPostImages = async (): Promise<string[]> => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(userPostImages)
+    }, 4000);
+  });
+}

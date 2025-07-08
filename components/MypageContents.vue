@@ -1,12 +1,20 @@
 <template>
   <div v-if="isLoggedIn" class="space-y-10">
-    <h1 class="text-4xl font-bold">Your Profile</h1>
+    <h2 class="text-4xl font-bold">Your Profile</h2>
     <Suspense>
-      <template #default>
-        <UserInfoCard />
-      </template>
+      <UserInfoCard />
       <template #fallback>
         <NuxtSkeleton class="w-full h-40 rounded-md" />
+      </template>
+    </Suspense>
+
+    <h2 class="text-4xl font-bold">Your Images</h2>
+    <Suspense>
+      <UserPostImages />
+      <template #fallback>
+        <ImageGrid :items="Array(5)">
+          <NuxtSkeleton class="w-full aspect-square rounded-md" />
+        </ImageGrid>
       </template>
     </Suspense>
   </div>
@@ -17,6 +25,8 @@
 
 <script lang="ts" setup>
 import UserInfoCard from '~/components/UserInfoCard.vue';
+import UserPostImages from '~/components/UserPostImages.vue';
+import ImageGrid from '~/components/ImageGrid.vue';
 import { fetchIsLoggedIn } from "~/api/auth";
 
 const isLoggedIn = ref<boolean | null>(null)
