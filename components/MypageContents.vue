@@ -20,5 +20,15 @@ import UserInfoCard from '~/components/UserInfoCard.vue';
 import { fetchIsLoggedIn } from "~/api/auth";
 
 const isLoggedIn = ref<boolean | null>(null)
-isLoggedIn.value = await fetchIsLoggedIn() // 2000ms遅延
+
+// ERROR①: 一部にcustom UIを表示(mypage.vueでhandling)
+// isLoggedIn.value = await fetchIsLoggedIn() // 2000ms遅延
+
+// ERROR②: error.vueを表示
+try {
+  isLoggedIn.value = await fetchIsLoggedIn() // 2000ms遅延
+} catch (err: any) {
+  console.log("err", err)
+  throw createError({ statusCode: 401, statusMessage: "ログイン失敗", fatal: true })
+}
 </script>
