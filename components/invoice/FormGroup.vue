@@ -34,8 +34,8 @@
       <PurposeForm v-model="form.purpose" />
       <template #fallback>
         <div class="space-y-4">
-          <NuxtSkeleton class="w-50 h-8 rounded-md" />
-          <NuxtSkeleton class="w-80 h-12 rounded-md" />
+          <NuxtSkeleton class="w-50 h-5 rounded-md" />
+          <NuxtSkeleton class="w-80 h-10 rounded-md" />
         </div>
       </template>
     </Suspense>

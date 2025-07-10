@@ -5,9 +5,9 @@
       <FormGroup />
       <template #fallback>
         <div class="space-y-6">
-          <div class="space-y-4" v-for="i in 4">
-            <NuxtSkeleton class="w-50 h-8 rounded-md" />
-            <NuxtSkeleton class="w-80 h-12 rounded-md" />
+          <div class="space-y-4" v-for="i in 5">
+            <NuxtSkeleton class="w-50 h-5 rounded-md" />
+            <NuxtSkeleton class="w-80 h-10 rounded-md" />
           </div>
         </div>
       </template>
