@@ -86,6 +86,6 @@ try {
 try {
   isJuridicPerson.value = await fetchIsJuridicPerson()
 } catch (err) {
-  console.error('請求書の取得に失敗しました', err);
+  console.error('法人ステータスの取得に失敗しました', err);
 }
 </script>

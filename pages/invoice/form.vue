@@ -1,7 +1,7 @@
 <template>
   <div class="space-y-10">
     <h1 class="text-4xl font-bold">Invoice Form</h1>
-    <NuxtErrorBoundary>
+    <NuxtErrorBoundary @error="logError">
       <Suspense>
         <FormGroup />
         <template #fallback>
@@ -16,7 +16,11 @@
       <template #error="{error}">
         {{ error.statusCode }}
         {{ error.message }}
-        <NuxtButton variant="outline">再試行する</NuxtButton>
+        <NuxtButton
+          variant="outline"
+          @click="reloadWindow">
+          再試行する
+        </NuxtButton>
       </template>
     </NuxtErrorBoundary>
   </div>
@@ -24,4 +28,12 @@
 
 <script lang="ts" setup>
 import FormGroup from '~/components/invoice/FormGroup.vue';
+
+const logError = (err: any) => {
+  console.log("err", err)
+}
+
+const reloadWindow = () => {
+  window.location.reload()
+}
 </script>
