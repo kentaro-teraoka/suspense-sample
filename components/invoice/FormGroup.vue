@@ -2,7 +2,7 @@
   <NuxtForm
     :state="form"
     class="space-y-6">
-    <NuxtFormField label="利用区分" name="usage" size="xl">
+    <NuxtFormField v-if="isJuridicPerson" label="利用区分" name="usage" size="xl">
       <NuxtRadioGroup
         v-model="form.usage"
         :items="usageOptions" />
@@ -49,7 +49,7 @@
 </template>
 
 <script lang="ts" setup>
-import { type InvoiceType, fetchInvoiceHistory } from '~/api/invoice/history'
+import { type InvoiceType, fetchInvoiceHistory, fetchIsJuridicPerson } from '~/api/invoice/history'
 import PurposeForm from '~/components/invoice/PurposeForm.vue'
 
 const route = useRoute()
@@ -66,6 +66,7 @@ const form = reactive<InvoiceType>({
   purpose: '',
   evidence: null,
 })
+const isJuridicPerson = ref<boolean>(false)
 const usageOptions = ref<string[]>(["個人", "法人"])
 
 // form取得
@@ -74,6 +75,13 @@ try {
     const data = await fetchInvoiceHistory(invoiceId.value);
     Object.assign(form, data);
   }
+} catch (err) {
+  console.error('請求書の取得に失敗しました', err);
+}
+
+// 法人かどうか取得
+try {
+  isJuridicPerson.value = await fetchIsJuridicPerson()
 } catch (err) {
   console.error('請求書の取得に失敗しました', err);
 }

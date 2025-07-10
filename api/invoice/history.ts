@@ -66,6 +66,15 @@ export const fetchInvoiceHistory = async (invoiceId: string): Promise<InvoiceTyp
   });
 }
 
+export const fetchIsJuridicPerson = async (): Promise<boolean> => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(true)
+      // reject("法人かどうかわからなかったです。")
+    }, 2500);
+  });
+}
+
 const purposeOptions: string[] = [
   "資金調達",
   "設備投資",
