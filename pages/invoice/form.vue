@@ -14,6 +14,7 @@
         </template>
       </Suspense>
       <template #error="{error}">
+        {{ error.statusCode }}
         {{ error.message }}
         <NuxtButton variant="outline">再試行する</NuxtButton>
       </template>
