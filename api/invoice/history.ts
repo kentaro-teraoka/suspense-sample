@@ -60,7 +60,7 @@ export const fetchInvoiceHistory = async (invoiceId: string): Promise<InvoiceTyp
       if (invoice) {
         resolve(invoice);
       } else {
-        reject(new Error("該当するデータが見つかりませんでした"));
+        reject("該当するデータが見つかりませんでした");
       }
     }, 2000);
   });
@@ -71,7 +71,7 @@ export const fetchIsJuridicPerson = async (): Promise<boolean> => {
     setTimeout(() => {
       resolve(true)
       // reject("法人かどうかわからなかったです。")
-    }, 2500);
+    }, 1000);
   });
 }
 

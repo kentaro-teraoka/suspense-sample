@@ -76,7 +76,10 @@ try {
     Object.assign(form, data);
   }
 } catch (err) {
-  console.error('請求書の取得に失敗しました', err);
+  throw createError({
+    statusCode: 404,
+    statusMessage: "請求書の取得に失敗しました。",
+  })
 }
 
 // 法人かどうか取得
