@@ -19,5 +19,10 @@ const navigations = ref<NavigationMenuItem[]>([
     label: "Mypage",
     to: "/mypage",
   },
+  {
+    icon: "i-lucide-file-text",
+    label: "Invoice Form",
+    to: "/invoice/form",
+  },
 ])
 </script>
