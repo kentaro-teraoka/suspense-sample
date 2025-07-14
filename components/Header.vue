@@ -27,7 +27,7 @@ const navigations = ref<NavigationMenuItem[]>([
   {
     icon: "i-lucide-file-clock",
     label: "Trading History",
-    to: "/trading-history/detail",
+    to: "/trading-history/detail?invoiceId=1",
   },
 ])
 </script>
