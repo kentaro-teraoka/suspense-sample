@@ -24,5 +24,10 @@ const navigations = ref<NavigationMenuItem[]>([
     label: "Invoice Form",
     to: "/invoice/form",
   },
+  {
+    icon: "i-lucide-file-clock",
+    label: "Trading History",
+    to: "/trading-history/detail",
+  },
 ])
 </script>
