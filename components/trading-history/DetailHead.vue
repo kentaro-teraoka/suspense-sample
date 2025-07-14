@@ -1,7 +1,10 @@
 <template>
-  <div>
+  <NuxtCard variant="subtle">
+    <template #header>
+      <p class="font-bold">Head</p>
+    </template>
     date: {{ tradingHistory?.date }}
-  </div>
+  </NuxtCard>
 </template>
 
 <script lang="ts" setup>

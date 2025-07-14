@@ -1,35 +1,37 @@
 <template>
-  <!-- Head -->
-  <NuxtErrorBoundary @error="logError">
-    <Suspense>
-      <DetailHead :invoice-id="invoiceId"/>
-      <template #fallback>
-        <p>DetailHead is getting...</p>
+  <div class="space-y-10">
+    <!-- Head -->
+    <NuxtErrorBoundary @error="logError">
+      <Suspense>
+        <DetailHead :invoice-id="invoiceId"/>
+        <template #fallback>
+          <p>DetailHead is getting...</p>
+        </template>
+      </Suspense>
+      <template #error="{error}">
+        <div>
+          {{ error.statusCode }}
+          {{ error.message }}
+        </div>
       </template>
-    </Suspense>
-    <template #error="{error}">
-      <div>
-        {{ error.statusCode }}
-        {{ error.message }}
-      </div>
-    </template>
-  </NuxtErrorBoundary>
-
-  <!-- Body -->
-  <NuxtErrorBoundary @error="logError">
-    <Suspense>
-      <DetailBody :invoice-id="invoiceId" />
-      <template #fallback>
-        <p>DetailBody is getting...</p>
+    </NuxtErrorBoundary>
+  
+    <!-- Body -->
+    <NuxtErrorBoundary @error="logError">
+      <Suspense>
+        <DetailBody :invoice-id="invoiceId" />
+        <template #fallback>
+          <p>DetailBody is getting...</p>
+        </template>
+      </Suspense>
+      <template #error="{error}">
+        <div>
+          {{ error.statusCode }}
+          {{ error.message }}
+        </div>
       </template>
-    </Suspense>
-    <template #error="{error}">
-      <div>
-        {{ error.statusCode }}
-        {{ error.message }}
-      </div>
-    </template>
-  </NuxtErrorBoundary>
+    </NuxtErrorBoundary>
+  </div>
 </template>
 
 <script lang="ts" setup>
